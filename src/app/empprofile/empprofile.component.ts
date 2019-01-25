@@ -10,6 +10,15 @@ export class EmpprofileComponent implements OnInit {
   constructor(private profileservice:ProfileService) { }
   arr:object={};
  data:any[];
+  name:string;
+  id:string;
+  role:string;
+  salary:string;
+  phonenum:string;
+  gmail:string;
+  password:string;
+  aadhar:string;
+  banknum:string;
 
   ngOnInit()
    {
