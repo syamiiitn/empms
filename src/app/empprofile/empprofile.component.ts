@@ -9,7 +9,7 @@ export class EmpprofileComponent implements OnInit {
 
   constructor(private profileservice:ProfileService) { }
   arr:object={};
- data:any[];
+ data:any[]=[];
   name:string;
   id:string;
   role:string;
