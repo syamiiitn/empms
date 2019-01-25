@@ -8,8 +8,8 @@ import { ProfileService } from '../profile.service';
 export class EmpprofileComponent implements OnInit {
 
   constructor(private profileservice:ProfileService) { }
-  arr:any[];
- data:object={};
+  arr:object={};
+ data:any[];
   name:string;
   id:number;
   role:string;
