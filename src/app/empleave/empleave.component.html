@@ -1,0 +1,88 @@
+<div class="container">
+  <h3 class="font-weight-bold text-center mt-5 pt-5 text-muted" >Leave For Empolyee</h3>
+  <div class="text-center mt-5">
+  <button type="button" data-target="#leaveform" data-toggle="modal" class="btn btn-primary">Leave Form</button>
+</div>
+    <div class="row mt-4">
+      <table class="table">
+        <thead class="thead-dark">
+          <th>SNO</th>
+          <th>Name</th>
+          <th>TYPE OF LEAVE </th>
+          <th>FROM DATE </th>
+          <th>TO DATE </th>
+          <th>LEAVE STATUS </th>
+
+        </thead>
+        <tr *ngFor="let i of data; let j=index;let k of leavestatus">
+          <td>{{j+1}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.leaveoption}}</td>
+          <td>{{i.leavedate}}</td>
+          <td>{{i.leavedateto}}</td>
+          <td>{{k.status}}</td>
+        </tr>
+      </table>
+   </div>
+<div class="modal fade" id="leaveform">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-center">Leave Form</h3>
+        <button type="button" data-dismiss="modal"  class="close text-danger">x</button>
+      </div>
+      <div class="modal-body">
+        <form #leave="ngForm"  (ngSubmit)="leaveMethod(leave.value)">
+          <div class="form-group">
+            <label for="leavename">NAME:</label>
+            <input type="text" name="name" id="leavename" [(ngModel)]="name"
+            class="form-control">
+            </div>
+          <div class="form-group">
+              <label for="leavename">ID:</label>
+              <input type="text" name="id" id="leaveid" #leaveid1=ngModel  [(ngModel)]="id"
+              class="form-control">
+              </div>
+            <div class="form-group">
+              <label>TYPE OF LEAVE</label><br/>
+              <select name="leaveoption" [(ngModel)]="leaveoption">
+                <option>type of leave</option>
+                <option>sick leave</option>
+                <option>personal leave</option>
+                <option>paid leave</option>
+                <option> others</option>
+              </select>
+            </div>
+              <div class="form-group">
+              <textarea name="reasonforleave" rows="4" class="form-control" placeholder="write reason here" [(ngModel)]="reasonforleave"></textarea>
+            </div>
+            <div class="form-group">
+              <label>FROM DATA</label>
+              <input type="date" name="leavedate" [(ngModel)]="leavedate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>TO DATA</label>
+                <input type="date" name="leavedateto" [(ngModel)]="leavedateto" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <input type="text" name="status" [(ngModel)]="status" class="form-control" readonly="true">
+              </div>
+              <!-- <div class="form-group">
+                <label>Leave Sanction</label>
+                <input type="text" name="sanction" [(ngModel)]="sancation" class="form-control">
+              </div> -->
+          <div class="text-center">
+             <button type="submit" class="btn btn-primary mt-3">Send</button>
+            </div>
+            <div class="text-right">
+                <button type="button" data-dismiss="modal" class="btn btn-primary mt-3">close</button>
+               </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  
+

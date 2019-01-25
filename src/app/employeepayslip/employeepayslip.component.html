@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <h3 class="font-weight-bold mt-5 pt-5 text-muted">Payslips For Empolyee</h3>
+  </div>
+ 
+  <div class="col-6  text-center mt-5" style="margin-left:1000px">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" [(ngModel)]="searchTerm">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  <table class="table mt-5">
+    <thead>
+      <th>Sno</th>
+      <th>Name</th>
+      <th>Id</th>
+      <th>Basic Salary</th>
+      <th>Hikes</th>
+      <th>Total</th>
+      <th>Edit</th>
+     <th>Generate</th>
+    </thead>
+    <tr *ngFor="let i of (dataforpayslips |search:searchTerm | paginate:{itemsPerPage:5,currentPage:p});let j=index">
+       
+      <td>{{j+1}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.id}}</td>
+      <td>{{i.salary}}</td>
+      <td>{{i.hikes}}</td>
+     <td>{{(i.salary*i.hikes)/100}}</td>
+     <td><button type="button" class="btn btn-warning" data-target="#hikes" 
+         data-toggle="modal" (click)="hikes(i)">Edit</button></td>
+     <td><button type="submit" class="btn btn-primary" (click)="generate(i)" >Generate</button></td>
+    
+      </tr>
+  </table>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  <div class="modal fade" id="hikes">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="font-weight-bold">Update Hike</h3>
+          <button type="button" data-dismiss="modal" class="close text-danger">x</button>
+        </div>
+        <div class="modal-body">
+           
+                <div class=" form-group">
+                    <label for="h">Hikes:*</label>
+                    <input type="text" id="h" name="hikes" [(ngModel)]=" hikesforempolyee.hikes"  class="form-control" >
+                 </div>
+              
+          
+        <div class="text-center">
+          <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="updateHikes()" >Update</button>
+        </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

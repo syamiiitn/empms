@@ -1,0 +1,138 @@
+<div class="container-fluid" 
+ style="background-image:url(assets/); background-repeat:no-repeat;
+background-size:cover;
+width:100%;
+height:100vh;
+overflow:auto;
+" >
+
+    
+    <h3 class="font-weight-bold text-center mt-5 pt-5 text-muted">Profile</h3>
+       
+      <div style="margin-left:760px"><img src="assets/business-1.jpg" alt="" width="100px" height="100px" style="border-radius: 100px"></div>
+      <div class="row mt-3">
+        <div class="col-4"></div>
+        <div class="col-6 mx-auto"  >
+            <table>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Name      :    {{i.name}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Id        :    {{i.id}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Role      :    {{i.role}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Salary    :    {{i.salary}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Phone Num :    {{i.phonenum}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Email     :    {{i.gmail}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Aadhar    :    {{i.aadhar}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                    <td><pre>Banknum   :    {{i.banknum}}</pre></td>
+                </tr>
+                <tr *ngFor="let i of arr">
+                        <button type="button" data-target="#update" data-toggle="modal" class=" btn btn-primary" (click)="update(i)">Update</button>
+                </tr>
+            </table>
+          <!-- <h4 class="font-weight-bold"><pre >Name      :    {{profile.name}}            </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Id        :    {{profile.id}}          </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Role      :    {{profile.role}}          </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Salary    :    {{profile.salary}}          </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Phone Num :    {{profile.phonenum}}          </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Email     :    {{profile.gmail}}          </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Aadhar    :    {{profile.aadhar}}         </pre></h4><br/>
+          <h4 class="font-weight-bold"><pre >Banknum   :    {{profile.banknum}}         </pre></h4><br/> -->
+       </div>
+        <div class="col-3"></div>
+      </div>
+      
+      <div class="modal fade" id="update">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <!-- modal-header -->
+                <div class="modal-header">
+                    <h3 class="font-weight-bold"> ADD NEW EMPOLYEE </h3>
+                    <button type="button" data-dismiss="modal" class="close text-danger">x</button>
+                </div>
+                 <!-- modal-body -->
+                <div class="modal-body">
+                  <form #empdetails="ngForm" (ngSubmit)="emp(empdetails.value)">
+                     <div class=" form-group">
+                      <label for="name1">Name:*</label>
+                      <input type="text" id="name1" name="name" [(ngModel)]="data.name"  class="form-control" #name1="ngModel" required minlength="4">
+                      <label *ngIf="name1.touched&&name1.errors?.required" class="text-danger">field is mandatory </label>
+                      <label *ngIf="name1.dirty&&name1.errors?.minlength" class="text-danger">min 4 characters is mandatory </label>
+                     </div>
+                     <div class=" form-group">
+                        <label for="id1">Id:*</label>
+                        <input type="text" id="id1" name="id" [(ngModel)]="data.id"  class="form-control" #id1="ngModel" required minlength="10" maxlength="10">
+                        <label *ngIf="id1.touched&&id1.errors?.required" class="text-danger">field is mandatory </label>
+                        <label *ngIf="id1.dirty&&id1.errors?.minlength" class="text-danger"> 10 digits are is mandatory </label>
+                       
+                     </div>
+                      <div class=" form-group">
+                          <label for="role1">Role:*</label>
+                          <input type="text" id="role1" name="role" [(ngModel)]="data.role"  class="form-control" #role1="ngModel" required minlength="4" [disabled]>
+                          <label *ngIf="role1.touched&&role1.errors?.required" class="text-danger">field is mandatory </label>
+                          <label *ngIf="role1.errors?.minlength" class="text-danger">min 4 chars is mandatory </label>
+                      </div>
+                      <div class=" form-group">
+                          <label for="salary1">Salary:*</label>
+                          <input type="number" id="salary1" name="salary" [(ngModel)]="data.salary" class="form-control" #salary1="ngModel" reqiured [disabled]>
+                          <label *ngIf="salary1.touched&&salary1.errors?.required" class="text-danger">field is mandatory </label>
+                      </div>
+                      <div class=" form-group">
+                          <label for="phonenum1">Phonenum:*</label>
+                          <input type="number" id="phonenum1" name="phonenum" [(ngModel)]="data.phonenum"  class="form-control" maxlength="10">
+                      </div>
+                      <div class=" form-group">
+                          <label for="Email1">Email:*</label>
+                          <input type="email" id="Email1" name="gmail" [(ngModel)]="data.gmail"  class="form-control">
+                      </div>
+                      <div class=" form-group">
+                          <label for="password">Password:*</label>
+                          <input type="password" id="password" name="password" [(ngModel)]="data.password"  class="form-control" #password1 required patter="[A-Z].*">
+                          <label >note:first letter is captial</label>
+                      </div>
+                      <div class=" form-group">
+                          <label for="aadhar">Aadhar:*</label>
+                          <input type="number" id="aadhar" name="aadhar" [(ngModel)]="data.aadhar"  class="form-control" #aadhar1="ngModel" required minlength="10" maxlength="10">
+                          <label *ngIf="aadhar1.touched&&aadhar1.errors?.required" class="text-danger" >field is mandatory</label>
+                          <label *ngIf="aadhar1.dirty&&aadhar1.errors?.minlength" >note:10 digits is mandatory</label>
+                      </div>
+                      <div class=" form-group">
+                          <label for="banknum">Banknum:*</label>
+                          <input type="number" id="banknum" name="banknum" [(ngModel)]="data.banknum" class="form-control" #banknum1="ngModel" required maxlength="10">
+                          <label *ngIf="banknum1.touched&&banknum1.invalid">field is mandatory </label>
+                          <label>note:10 digits is mandatory</label>
+                      </div>
+                      <!-- <label for="gender">Gender:</label>
+                      <div class="form-check ml-5">
+                        <label class="form-check-label">
+                          <input  type="radio"  class="form-check-input" id="gender" name="gender">Male
+                        </label>
+                      </div>
+                      <div class="form-check ml-5">
+                          <label class="form-check-label">
+                            <input  type="radio"  class="form-check-input" id="gender" name="gender">Female
+                          </label>
+                      </div>  -->
+                      <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                     
+                    </form>
+                </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>

@@ -1,0 +1,240 @@
+<div class="container " style="margin-top:200px">
+  <div class="text-center">
+    <h3 class="text-muted" style="margin-top: -100px" >Employee Details</h3>
+  </div>
+  <div class="row" style="margin-top:30px">
+    <!-- add employee details -->
+    <div class="col-4 mx-auto">
+      <button type="button" data-target="#addemployee" data-toggle="modal" class="btn btn-primary" >AddEmployee</button> 
+    </div>
+    <div class="col-2"></div>
+     <!-- search input field -->
+  <div class="col-6  text-center" style="margin-bottom:200px;margin-right: -47px" >
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" [(ngModel)]="searchTerm">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  </div>
+  <!-- table for printing employee data -->
+  <table class="table table-bordered" style="margin-top:-150px">
+    <thead>
+      <th>Sno</th>
+      <th>Name</th>
+      <th>Id</th>
+      <th>Role</th>
+      <th>salary</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tr *ngFor="let i of empdatacomponent |search:searchTerm |paginate:{itemsPerPage:3,currentPage:p}
+                                                               ;let j=index" >
+      <td>{{j+1}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.id}}</td>
+      <td>{{i.role}}</td>
+      <td>{{i.salary}}</td>
+      <!-- button for edit using modal -->
+      <td><button type="button" data-target="#edit" data-toggle="modal" (click)="edit(i)" class=" btn btn-info">Edit</button></td>
+      <!-- update the salary -->
+       
+      <!-- button for using delete -->
+    <td> <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button></td> 
+    </tr>
+  
+  </table>
+
+
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+
+  <!-- addemployeedetails with help of modal button -->
+  <div class="modal fade" id="addemployee">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <!-- modal-header -->
+            <div class="modal-header">
+                <h3 class="font-weight-bold"> ADD NEW EMPOLYEE </h3>
+                <button type="button" data-dismiss="modal" class="close text-danger">x</button>
+            </div>
+             <!-- modal-body -->
+            <div class="modal-body">
+              <form #empdetails="ngForm" (ngSubmit)="empAddMethod(empdetails.value)">
+                 <div class=" form-group">
+                  <label for="name2">Name:*</label>
+                  <input type="text" id="name2" name="name" [(ngModel)]="name"  class="form-control" #name1="ngModel"
+                   required minlength="4">
+                  <label *ngIf="name1.touched&&name1.errors?.required" class="text-danger">field is mandatory </label>
+                  <!-- <label *ngIf="name1.dirty&&name1.errors?.minlength" class="text-danger">min 4 characters is mandatory </label> -->
+                 </div>
+                 <div class=" form-group">
+                    <label for="id2">Id:*</label>
+                    <input type="text" id="id2" name="id" [(ngModel)]="id"  class="form-control" #id1="ngModel" required minlength="1" maxlength="10">
+                    <label *ngIf="id1.touched&&id1.errors?.required" class="text-danger">field is mandatory </label>
+                    <!-- <label *ngIf="id1.dirty&&id1.errors?.minlength" class="text-danger"> 10 digits are is mandatory </label> -->
+                   
+                 </div>
+                  <div class=" form-group">
+                      <label for="role2">Role:*</label>
+                      <input type="text" id="role2" name="role" [(ngModel)]="role"  class="form-control" #role1="ngModel" required minlength="4" [disabled]>
+                      <label *ngIf="role1.touched&&role1.errors?.required" class="text-danger">field is mandatory </label>
+                      <!-- <label *ngIf="role1.errors?.minlength" class="text-danger">min 4 chars is mandatory </label> -->
+                  </div>
+                  <div class=" form-group">
+                      <label for="salary2">Salary:*</label>
+                      <input type="type" id="salary2" name="salary" [(ngModel)]="salary"  class="form-control" #salary1="ngModel"
+                           required pattern="\d\d\d\d\d\d" maxlength="6">
+                      <!-- <label *ngIf="salary1.touched&&salary1.errors?.required" class="text-danger">field is mandatory </label> -->
+                      <!-- <label *ngIf="salary1.dirty&&salary1.errors?.pattern" class="text-danger">six digits  mandatory </label> -->
+                  </div>
+                  <div class=" form-group">
+                    <label for="hikes2">Hikes:*</label>
+                    <input type="text" id="hikes2" name="hikes" [(ngModel)]="hikes"  class="form-control" #hikes1="ngModel" required pattern="\d\d" maxlength="3">
+                    <label *ngIf="hikes1.touched&&hikes1.errors?.required" class="text-danger">field is mandatory </label>
+                    <!-- <label *ngIf="hikes1.dirty&&hikes1.errors?.pattern" class="text-danger">two digits  mandatory </label> -->
+                </div>
+                  <div class=" form-group">
+                      <label for="phonenum2">Phonenum:*</label>
+                      <input type="text" id="phonenum2" name="phonenum" [(ngModel)]="phonenum" #phonnum1="ngModel" class="form-control" required maxlength="10">
+                      <label *ngIf="phonnum1.touched&&phonnum1.errors?.required" class="text-danger">field is mandatory </label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="Email2">Email:*</label>
+                      <input type="email" id="gmail2" name="gmail" [(ngModel)]="gmail"  class="form-control">
+                  </div>
+                  <div class=" form-group">
+                      <label for="password2">Password:*</label>
+                      <input type="password" id="password2" name="password" [(ngModel)]="password"  class="form-control" #password1="ngModel" required pattern="[A-Z].*" maxlenght="6">
+                      <label >note:first letter is captial</label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="aadhar2">Aadhar:*</label>
+                      <input type="text" id="aadhar2" name="aadhar" [(ngModel)]="aadhar"  class="form-control"
+                       #aadhar1="ngModel" required minlength="10" maxlength="12">
+
+                      <label *ngIf="aadhar1.touched&&aadhar1.errors?.required" class="text-danger" >field is mandatory</label>
+                      <label *ngIf="aadhar1.dirty&&aadhar1.errors?.minlength" >note:10 digits is mandatory</label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="banknum2">Banknum:*</label>
+                      <input type="text" id="banknum2" name="banknum" [(ngModel)]="banknum"  class="form-control" 
+                                      #banknum1="ngModel" 
+                      required maxlength="10">
+
+                      <label *ngIf="banknum1.touched&&banknum1.invalid">field is mandatory </label>
+                      <label>note:10 digits is mandatory</label>
+                  </div>
+                  <label>Gender:</label>
+                  <div class="form-check ml-5">
+                    <label class="form-check-label">
+                      <input  type="radio"  class="form-check-input"  value="male"  name="gender" [(ngModel)]="gender">Male
+                    </label>
+                  </div>
+                  <div class="form-check ml-5">
+                      <label class="form-check-label">
+                        <input  type="radio"  class="form-check-input"  value="female" name="gender" [(ngModel)]="gender">Female
+                      </label>
+                  </div> 
+                  <div class="text-center">
+                  <button type="submit" class="btn btn-primary" >Submit</button>
+                </div>
+                <div class="text-right">
+                  <button type="button" data-dismiss="modal" class="btn btn-danger" >Close</button>
+                </div>   
+                </form>
+            </div>
+      </div>
+    </div>
+  </div>
+  <!--emp details for edit modal  -->
+  <div class="modal fade" id="edit">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <!-- modal-header -->
+            <div class="modal-header">
+                <h3 class="font-weight-bold"> UPDATE EMPOLYEE Details </h3>
+                <button type="button" data-dismiss="modal" class="close text-danger">x</button>
+            </div>
+             <!-- modal-body -->
+            <div class="modal-body">
+              <form>
+                 <!-- <div class=" form-group">
+                  <label for="name3">Name:*</label>
+                  <input type="text" id="name3" name="name" [(ngModel)]="empeditdetails.name"  class="form-control"  required minlength="4">
+                  <label *ngIf="name1.touched&&name1.errors?.required" class="text-danger">field is mandatory </label>
+                  <label *ngIf="name1.dirty&&name1.errors?.minlength" class="text-danger">min 4 characters is mandatory </label>
+                 </div>
+                 <div class=" form-group">
+                    <label for="id3">Id:*</label>
+                    <input type="text" id="id3" name="id" [(ngModel)]="empeditdetails.id"  class="form-control" #id1="ngModel" required minlength="10" maxlength="10">
+                    <label *ngIf="id1.touched&&id1.errors?.required" class="text-danger">field is mandatory </label>
+                    <label *ngIf="id1.dirty&&id1.errors?.minlength" class="text-danger"> 10 digits are is mandatory </label>
+                   
+                 </div> -->
+                  <div class=" form-group">
+                      <label for="role3">Role:*</label>
+                      <input type="text" id="role3" name="role" [(ngModel)]="empeditdetails.role"  class="form-control" #role1="ngModel" required minlength="4" [disabled]>
+                      <label *ngIf="role1.touched&&role1.errors?.required" class="text-danger">field is mandatory </label>
+                      <label *ngIf="role1.errors?.minlength" class="text-danger">min 4 chars is mandatory </label>
+                  </div>
+                  <!-- <div class=" form-group">
+                      <label for="salary3">Salary:*</label>
+                      <input type="text" id="salary3" name="salary" [(ngModel)]="empeditdetails.salary"  class="form-control" #salary1="ngModel" required pattern="\d\d\d\d\d\d" maxlength="6">
+                      <label *ngIf="salary1.touched&&salary1.errors?.required" class="text-danger">field is mandatory </label>
+                      <label *ngIf="salary1.dirty&&salary1.errors?.pattern" class="text-danger">six digits  mandatory </label>
+                  </div>
+                  <div class=" form-group">
+                    <label for="hikes3">Hikes:*</label>
+                    <input type="text" id="hikes3" name="hikes" [(ngModel)]="empeditdetails.hikes"  class="form-control" #hikes1="ngModel" required pattern="\d\d\d" maxlength="3">
+                    <label *ngIf="salary1.touched&&salary1.errors?.required" class="text-danger">field is mandatory </label>
+                    <label *ngIf="salary1.dirty&&salary1.errors?.pattern" class="text-danger">six digits  mandatory </label>
+                </div>
+                  <div class=" form-group">
+                      <label for="phonenum3">Phonenum:*</label>
+                      <input type="text" id="phonenum3" name="phonenum" [(ngModel)]="empeditdetails.phonenum"  class="form-control" maxlength="10">
+                      <label *ngIf="salary1.dirty&&salary1.errors?.pattern" class="text-danger"> </label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="Email3">Email:*</label>
+                      <input type="email" id="Email3" name="Email" [(ngModel)]="empeditdetails.Email"  class="form-control">
+                  </div>
+                  <div class=" form-group">
+                      <label for="password3">Password:*</label>
+                      <input type="text" id="password3" name="password" [(ngModel)]="empeditdetails.password"  class="form-control" #password1="ngModel" required pattern="[A-Z].*" maxlenght="6">
+                      <label >note:first letter is captial</label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="aadhar3">Aadhar:*</label>
+                      <input type="text" id="aadhar3" name="aadhar" [(ngModel)]="empeditdetails.aadhar"  class="form-control" #aadhar1="ngModel" required minlength="10" maxlength="12">
+                      <label *ngIf="aadhar1.touched&&aadhar1.errors?.required" class="text-danger" >field is mandatory</label>
+                      <label *ngIf="aadhar1.dirty&&aadhar1.errors?.minlength" >note:10 digits is mandatory</label>
+                  </div>
+                  <div class=" form-group">
+                      <label for="banknum3">Banknum:*</label>
+                      <input type="text" id="banknum3" name="banknum" [(ngModel)]="empeditdetails.banknum"  class="form-control" #banknum1="ngModel" required maxlength="10">
+                      <label *ngIf="banknum1.touched&&banknum1.invalid">field is mandatory </label>
+                      <label>note:10 digits is mandatory</label>
+                  </div> -->
+
+
+                  <!-- <label for="gender">Gender:</label>
+                  <div class="form-check ml-5">
+                    <label class="form-check-label">
+                      <input  type="radio"  class="form-check-input" id="gender" name="gender">Male
+                    </label>
+                  </div>
+                  <div class="form-check ml-5">
+                      <label class="form-check-label">
+                        <input  type="radio"  class="form-check-input" id="gender" name="gender">Female
+                      </label>
+                  </div>  -->
+                  <div class="text-center">
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateRole()">Update</button>
+                </div>
+                  
+                </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+
+   <div class="container-fluid">
+    <div class="text-center mt-5 pt-5"> <h1 class="text-muted">ATTENDENCE</h1></div>
+    <div style="margin-left:300px">  {{s|date}} </div>
+     <div class="text-center mt-3"><button type="button" data-target="#attendance"
+           class="btn btn-primary" data-toggle="modal">attendance </button> </div>
+     
+    
+         
+             <table class="table table-hover mt-5">
+                 <thead class="thead-dark">
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>emp_id</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Attend</th>
+                    <th>Status</th>
+                 </thead> 
+                 <tr *ngFor="let i of  attendance,let j=index">
+                   <td>{{j+1}}</td>
+                   <td>{{i.id}}</td>
+                   <td>{{i.name}}</td>
+                   <td>{{i.date}}</td>
+                   <td>{{i.time}}</td>
+                   <td>{{i.attd}}</td>
+                   <td>{{i.status}}</td>
+                 </tr>
+             </table>
+         
+           <div class="modal fade" id="attendance">
+             <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header text-center">
+                   <h3 class="font-weight-bold">
+                     Attendance
+                   </h3>
+                     <button type="button" class="close text-danger" data-dismiss="modal">x</button>
+               </div>
+             <div class="modal-body">
+             <form #ref1="ngForm" (ngSubmit)="attendanceApply(ref1.value)">
+               <div class="form-group">  
+                 <label for="abcd">employee name:</label>
+                 <input type="text" id="abcd" name="name" class="form-control" [(ngModel)]="name" >
+               </div>
+               <div class="form-group">  
+                 <label for="abc">employee Id:</label>
+                 <input type="text" id="abc" name="id" class="form-control" [(ngModel)]="id" >
+               </div>
+               <div class="form-group">  
+                 <label for="bcd">Today's Date:</label>
+                 <input type="date" id="bcd" name="date" class="form-control" [(ngModel)]="date">
+               </div>
+               <div class="form-group">  
+                 <label ><b>Status</b></label>
+                 &nbsp;&nbsp;&nbsp;<input type="radio" name="attd" value="absent" id="abc1" [(ngModel)]="attd">absent<br/>
+                 <pre>        <input type="radio" name="attd" value="present" id="abc2" [(ngModel)]="attd">present<br/></pre>
+               </div>
+               <div class="form-group">  
+                 <label for="fgh">Check-in Time:</label>
+                 <input type="time" id="fgh" name="time" class="form-control" [(ngModel)]="time" >
+               </div>
+               <div class="form-group">
+                <input type="text"  name="status" class="form-control" [(ngModel)]="status" readonly="true" >
+              </div>
+                <div class="text-center">
+               <button type="submit" class="btn btn-primary mt-1">Send</button>
+             </div>
+             </form>
+             </div>
+             </div>
+             </div>
+           </div>
+     
+      
+   </div>

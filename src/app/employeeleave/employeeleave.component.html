@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <h3 class="font-weight-bold mt-5 pt-5 text-muted">Leave For Empolyee</h3>
+  </div>
+  <!-- <div class="col-6  text-center mt-5" >
+      <input type="search" style="margin-left:1000px" name="search" class="border-info" placeholder="search..." [(ngModel)]="searchTerm">
+    </div> -->
+  <table class="table mt-5">
+    <thead>
+      <th>Sno</th>
+      <th>Name</th>
+      <th>Id</th>
+      <th>TypeOfLeave</th>
+      <th>From Date</th>
+      <th>To Date</th>
+      <th>ReasonForleave</th>
+      <th>Confirmation</th>
+    </thead>
+    <tr *ngFor="let i of requestleave |search:searchTerm |paginate:{itemsPerPage:3,currentPage:p};let j=index">
+      <td>{{j+1}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.id}}</td>
+      <td>{{i.leaveoption}}</td>
+      <td>{{i.leavedate}}</td>
+      <td>{{i.leavedateto}}</td>
+      <td>{{i.reasonforleave}}</td>
+      <td><button type="button" class="btn btn-primary" data-target="#leaveconfirmation" data-toggle="modal" (click)="leaveconfirmation(i)" >Confirmation</button></td>
+      </tr>
+  </table>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  <div class="modal" id="leaveconfirmation">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Leave Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form >
+        <div class=" form-group">
+          <label for="h">Confirmation:*</label>
+          <input type="text" id="h" name="status"  [(ngModel)]="leavedetails.status" class="form-control" >
+       </div>
+      </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary"  data-dismiss="modal" (click)="confirm()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
