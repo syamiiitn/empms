@@ -8,8 +8,8 @@ import { DataService } from '../data.service';
 })
 export class EmployeedetailsComponent implements OnInit {
   
-empdatacomponent:object={};
-empeditdetails:any[];
+empdatacomponent:any[]=[];
+empeditdetails:any={};
 searchTerm:string;
 gmail:string;
 gender:string;

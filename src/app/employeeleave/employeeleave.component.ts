@@ -7,8 +7,8 @@ import { LeaveService } from '../leave.service';
   styleUrls: ['./employeeleave.component.css']
 })
 export class EmployeeleaveComponent implements OnInit {
-  requestleave:object={};
-  leavedetails:any[];
+  requestleave:any[]=[];
+  leavedetails:any={};
   
   constructor(private leaveservice:LeaveService) { }
    p:number;
