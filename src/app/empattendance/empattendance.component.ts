@@ -10,6 +10,12 @@ export class EmpattendanceComponent implements OnInit {
 
   attendance:object[]=[];
   status:string="pending...";
+  name:string;
+  id:string;
+  date:string;
+  time:string;
+  attd:string;
+  s:string;
   constructor(private attendanceservice:AttendanceService) { }
 
     ngOnInit() 

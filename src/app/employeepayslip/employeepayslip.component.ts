@@ -6,8 +6,9 @@ import { PayslipService } from '../payslip.service';
   styleUrls: ['./employeepayslip.component.css']
 })
 export class EmployeepayslipComponent implements OnInit {
-  dataforpayslips:object[]=[];
-  hikesforempolyee:object[]=[];
+  dataforpayslips:object={};
+  hikesforempolyee:any[];
+  searchTerm:string;
   p:number;
   constructor(private payslipservice:PayslipService) { }
 

@@ -9,7 +9,7 @@ import { AttendanceService } from '../attendance.service';
 export class EmployeeattendanceComponent implements OnInit {
 
   constructor(private attendanceservice:AttendanceService) { }
-  attendance:object[]=[];
+  attendance:any[];
   checking:object={};
   ngOnInit() 
   {

@@ -7,11 +7,12 @@ import { LeaveService } from '../leave.service';
   styleUrls: ['./employeeleave.component.css']
 })
 export class EmployeeleaveComponent implements OnInit {
-  requestleave:object[]=[];
-  leavedetails:object[]=[];
+  requestleave:object={};
+  leavedetails:any[];
   
   constructor(private leaveservice:LeaveService) { }
-  // p:number;
+   p:number;
+   searchTerm:string;
   ngOnInit() {
     this.leaveservice.requestLeaveToAdmin().subscribe(temp=>{this.requestleave=temp;console.log(this.requestleave)});
   }

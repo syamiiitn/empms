@@ -10,6 +10,13 @@ export class EmpleaveComponent implements OnInit,DoCheck {
  
   constructor(private leaveservice:LeaveService) { }
   data:any;
+  name:string;
+  id:string;
+  leaveoption:string;
+  reasonforleave:string;
+  leavedate:string;
+  leavedateto:string;
+  status:string;
   // status:string="pending...";
   // sancation:string="waiting...";
   ngOnInit() {}

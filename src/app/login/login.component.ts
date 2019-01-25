@@ -8,19 +8,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  name:string;
+  password:string;
   constructor(private router:Router,private dataservice:DataService) { }
   s:string;
   ngOnInit() {
   }
 onSubmit(v){
-  // console.log(v);
-  // if(v.username=="admin"){
-  //   this.router.navigate(["admin"])
-  // }
-  // else{
-  //   this.router.navigate(["user"])
-  // }
   
   console.log(v);
   this.dataservice.logindetailsToDataservice(v).subscribe(temp=>{

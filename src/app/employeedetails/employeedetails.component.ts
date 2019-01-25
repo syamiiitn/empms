@@ -7,8 +7,12 @@ import { DataService } from '../data.service';
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-empdatacomponent:object[]=[];
-empeditdetails:object[]=[];
+  
+empdatacomponent:any[];
+empeditdetails:object={};
+searchTerm:string;
+gmail:string;
+gender:string;
 p:number;
 name:string;
 id:any;
