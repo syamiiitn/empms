@@ -11,14 +11,14 @@ export class EmpprofileComponent implements OnInit {
   arr:any[];
  data:object={};
   name:string;
-  id:string;
+  id:number;
   role:string;
-  salary:string;
-  phonenum:string;
+  salary:number;
+  phonenum:number;
   gmail:string;
   password:string;
   aadhar:string;
-  banknum:string;
+  banknum:number;
 
   ngOnInit()
    {
