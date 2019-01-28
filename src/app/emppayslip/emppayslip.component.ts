@@ -11,6 +11,7 @@ export class EmppayslipComponent implements OnInit {
 
   constructor(@Inject('Window') private window:Window, private payslipservice:PayslipService) { }
   dataforpayslips:object[]=[];
+  p:number;
   ngOnInit() {
     //getting payslip details
     this.payslipservice.payslipDetailsToEmployee().subscribe(temp=>{this.dataforpayslips=temp})

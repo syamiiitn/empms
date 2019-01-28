@@ -74,7 +74,7 @@ app.post('/admin/empolyeedetails',(req,res,next)=>{
 //CHECK Login details with DB POST METHOD
 
 app.post('/home/login',(req,res,next)=>{
-    this.s=req.body.name;
+    s=req.body.name;
   dbo.collection('employeedetails').find({name:req.body.name}).toArray((err,data)=>{
       if(err){
           console.log(err)
@@ -166,7 +166,7 @@ app.get('/admin/empolyeeleave',(req,res,next)=>{
 
 //Emp profile get method data
 app.get('/user/profile',(req,res,next)=>{
-    dbo.collection('employeedetails').find({name:this.s}).toArray((err,data)=>{
+    dbo.collection('employeedetails').find({name:s}).toArray((err,data)=>{
         if(err){
             console.log("error for getting data to employee profile"+err);
         }
@@ -212,7 +212,7 @@ app.put('/admin/employeeleave',(req,res)=>{
 app.post("/admin/empolyeepayslip",(req,res,next)=>{
 
     
-    dbo.collection('employeedetails').insertOne({
+    dbo.collection('employeepayslip').insertOne({
         "name":req.body.name,
         "id": req.body.id,
         "salary": req.body.salary,
@@ -230,7 +230,7 @@ app.post("/admin/empolyeepayslip",(req,res,next)=>{
 //GET Payslip Details to Employee 
 
 app.get('/user/payslip',(req,res,next)=>{
-    dbo.collection('employeepayslip').find({name:this.s}).toArray((err,data)=>{
+    dbo.collection('employeepayslip').find({name:s}).toArray((err,data)=>{
         console.log(this.s)
         if(err){
             console.log(err);
@@ -427,5 +427,5 @@ app.get("/user/attendance",(req,res)=>
 
 
 app.listen(process.env.PORT||8080,()=>{
-    console.log('server listning on port 4005...')
+    console.log('server listning on port 8080...')
 })

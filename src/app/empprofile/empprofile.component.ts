@@ -23,9 +23,8 @@ export class EmpprofileComponent implements OnInit {
   ngOnInit()
    {
      this.profileservice.dataSendToProfile().subscribe(temp=>{
-       console.log(temp);
        this.arr=temp;
-       console.log(this.arr);
+      //  console.log(this.arr);
        
        
      });

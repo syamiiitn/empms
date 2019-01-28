@@ -13,8 +13,8 @@ export class EmployeepayslipComponent implements OnInit {
   constructor(private payslipservice:PayslipService) { }
 
   ngOnInit() {
-    this.payslipservice. dataSendTopayslipComponent().subscribe(temp=>this.dataforpayslips=temp);
-    console.log(this.dataforpayslips);
+    this.payslipservice.dataSendTopayslipComponent().subscribe(temp=>{this.dataforpayslips=temp;console.log(this.dataforpayslips)});
+    
   }
   hikes(i)
   {
@@ -25,7 +25,7 @@ export class EmployeepayslipComponent implements OnInit {
  generate(i)
  {
   
- 
+  
    this.payslipservice.generatePaySlip(i).subscribe(temp=>alert(temp));
 
  }

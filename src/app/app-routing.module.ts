@@ -38,8 +38,8 @@ const routes: Routes = [{path:'home',component:HomeComponent,
                               {path:"profile",component:EmpprofileComponent}, 
                             {path:"attendance",component:EmpattendanceComponent},
                           {path:"leave",component:EmpleaveComponent},
-                          {path:"payslip",component:EmppayslipComponent},
-                          {path:"",redirectTo:"profile",pathMatch:"full"}
+                          {path:"payslip",component:EmppayslipComponent}
+                          // {path:"",redirectTo:"profile",pathMatch:"full"}
                         ]
                        },
                         
@@ -47,8 +47,8 @@ const routes: Routes = [{path:'home',component:HomeComponent,
                         children:[{path:"empolyeedetails",component:EmployeedetailsComponent},
                         {path:"empolyeeattendance",component:EmployeeattendanceComponent},
                         {path:"empolyeeleave",component:EmployeeleaveComponent},
-                      {path:"empolyeepayslip",component:EmployeepayslipComponent},
-                      {path:"",redirectTo:"empolyeedetails",pathMatch:"full"}
+                      {path:"empolyeepayslip",component:EmployeepayslipComponent}
+                      // {path:"",redirectTo:"empolyeedetails",pathMatch:"full"}
                     ]
                    },             
                     

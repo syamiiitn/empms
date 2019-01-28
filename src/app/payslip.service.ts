@@ -16,7 +16,7 @@ export class PayslipService {
      }
      //generate pay slip to dataservices
      generatePaySlip(i):Observable<any>
-     {
+     { 
      return  this.http.post<any>('admin/empolyeepayslip',i);
      }
      //payslip Downloading Details

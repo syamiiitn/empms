@@ -16,6 +16,7 @@ export class EmpattendanceComponent implements OnInit {
   time:string;
   attd:string;
   s:string;
+  p:number;
   constructor(private attendanceservice:AttendanceService) { }
 
     ngOnInit() 

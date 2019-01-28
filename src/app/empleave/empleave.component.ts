@@ -9,23 +9,25 @@ export class EmpleaveComponent implements OnInit,DoCheck {
   
  
   constructor(private leaveservice:LeaveService) { }
-  data:any;
+  data:any[]=[];
+  p:number;
   name:string;
   id:string;
   leaveoption:string;
   reasonforleave:string;
   leavedate:string;
   leavedateto:string;
-  status:string;
-  // status:string="pending...";
+  status:string="pending...";
   // sancation:string="waiting...";
-  ngOnInit() {}
+  ngOnInit() {
+      this.leaveservice.getDataEmployeeLeaveDetails().subscribe(temp=>{
+      this.data=temp;
+    })
+  }
   
   
   ngDoCheck(){
-    this.leaveservice.getDataEmployeeLeaveDetails().subscribe(temp=>{
-      this.data=temp;
-    })
+  
   }
   leaveMethod(v)
   {

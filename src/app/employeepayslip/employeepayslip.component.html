@@ -1,16 +1,16 @@
-<div class="container-fluid">
-  <div class="text-center">
-    <h3 class="font-weight-bold mt-5 pt-5 text-muted">Payslips For Empolyee</h3>
+<div class="container" style="margin-top:200px">
+  <div class="text-center  text-muted">
+    <h3 class="text-muted" style="margin-top: -100px" >Employee PaySlip</h3>
   </div>
  
-  <div class="col-6  text-center mt-5" style="margin-left:1000px">
+  <div class="col-6  text-center mt-4">
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" [(ngModel)]="searchTerm">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" [(ngModel)]="searchTerm" style="margin-left: 800px;">
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     </form>
   </div>
-  <table class="table mt-5">
-    <thead>
+  <table class="table table-bordered table-sm-responsive table-hover mt-3" >
+    <thead style="color:#0facf3">
       <th>Sno</th>
       <th>Name</th>
       <th>Id</th>
@@ -30,7 +30,7 @@
      <td>{{(i.salary*i.hikes)/100}}</td>
      <td><button type="button" class="btn btn-warning" data-target="#hikes" 
          data-toggle="modal" (click)="hikes(i)">Edit</button></td>
-     <td><button type="submit" class="btn btn-primary" (click)="generate(i)" >Generate</button></td>
+     <td><button type="button" class="btn btn-primary" (click)="generate(i)" >Generate</button></td>
     
       </tr>
   </table>

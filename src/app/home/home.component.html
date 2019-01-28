@@ -1,19 +1,16 @@
 <div class="container-fluid">
     <nav class="nav navbar-expand-sm navbar-dark bg-primary  fixed-top">
         <a class="navbar-brand" routerLink="#">
-            <img src="assets/logo5.png" style="width:80px;height:70px;margin-left:15px">
+            <img src="assets/logo5.png" style="width:70px;height:60px;margin-left:15px">
         </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#id1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="id1" class="collapse navbar-collapse">
         <ul class="navbar-nav text-center mt-3">
                <li class="nav-item active ml-4">
                <a routerLink="home1" class="nav-link">Home</a>
               </li>
-             <!-- <div class="dropdown ml-4" >
-                 <a routerLink="login" class=" dropdown-toggle nav-link" data-toggle="dropdown">Login</a>
-                 <div class="dropdown-menu">
-                   <a routerLink="admin" class="dropdown-item">Admin</a>
-                   <a routerLink="employee" class="dropdown-item">Employee</a>
-                 </div>
-             </div>  -->
              <li class="ml-4">
                 <a routerLink="login" class="nav-link">Login</a>
                 </li>
@@ -27,6 +24,7 @@
                 <a routerLink="contactus" class="nav-link">ContactUs</a>
             </li>
         </ul>
+    </div>
     </nav>
     </div>
   

@@ -11,6 +11,7 @@ export class EmployeeattendanceComponent implements OnInit {
   constructor(private attendanceservice:AttendanceService) { }
   attendance:any[]=[];
   checking:any={};
+  p:number;
   ngOnInit() 
   {
   this.attendanceservice.gettingEmployeeAttendanceToAdmin().subscribe(temp=>{this.attendance=temp})
