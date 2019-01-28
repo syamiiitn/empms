@@ -11,6 +11,7 @@ export class EmpleaveComponent implements OnInit,DoCheck {
   constructor(private leaveservice:LeaveService) { }
   data:any[]=[];
   p:number;
+  searchTerm:string;
   name:string;
   id:string;
   leaveoption:string;

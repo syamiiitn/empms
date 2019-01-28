@@ -12,6 +12,7 @@ export class EmployeeattendanceComponent implements OnInit {
   attendance:any[]=[];
   checking:any={};
   p:number;
+  searchTerm:string;
   ngOnInit() 
   {
   this.attendanceservice.gettingEmployeeAttendanceToAdmin().subscribe(temp=>{this.attendance=temp})
