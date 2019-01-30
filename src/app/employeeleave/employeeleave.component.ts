@@ -9,7 +9,7 @@ import { LeaveService } from '../leave.service';
 export class EmployeeleaveComponent implements OnInit {
   requestleave:any[]=[];
   leavedetails:any={};
-  // searchTerm:string;
+   searchTerm:string;
   constructor(private leaveservice:LeaveService) { }
    p:number;
   
