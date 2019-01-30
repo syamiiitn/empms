@@ -12,20 +12,20 @@ export class PayslipService {
      //data for payslip generate
      dataSendTopayslipComponent():Observable<any>
      {
-     return this.http.get<any>("admin/empolyeepayslip");
+     return this.http.get<any>("api/admin/empolyeepayslip");
      }
      //generate pay slip to dataservices
      generatePaySlip(i):Observable<any>
      { 
-     return  this.http.post<any>('admin/empolyeepayslip',i);
+     return  this.http.post<any>('api/admin/empolyeepayslip',i);
      }
      //payslip Downloading Details
      payslipDetailsToEmployee():Observable<any>{
-       return this.http.get<any>("user/payslip")
+       return this.http.get<any>("api/user/payslip")
      }
      //update Employee Details
      updateEmployeeDetails(i):Observable<any>{
-       return this.http.put("admin/empolyeepayslip",i);
+       return this.http.put("api/admin/empolyeepayslip",i);
        
      }
 }

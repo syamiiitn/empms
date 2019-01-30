@@ -19,10 +19,11 @@ import { EmppayslipComponent } from './emppayslip/emppayslip.component';
 import { CarrersComponent } from './carrers/carrers.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { Home1Component } from './home1/home1.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchPipe } from './search.pipe';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AuthenticationService } from './authentication.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,11 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,NgxPaginationModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthenticationService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

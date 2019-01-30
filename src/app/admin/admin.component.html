@@ -1,7 +1,7 @@
 <div id="x">
-    <div class="mt-5">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top" data-toggle="collapse">
-            <a class="navbar-brand" routerLink="#">
+    <div class="">
+        <nav class="navbar navbar-expand-sm navbar-dark  sticky-top" style="background-color:#58A4B0" data-toggle="collapse">
+            <a class="navbar-brand" routerLink="">
                 <img src="assets/admin.png" style="width:70px;height:60px; border-radius:30px;margin-left:15px">
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#id1">
@@ -23,9 +23,16 @@
                 </li>
             </ul>
             </div>
-            <!-- <a routerLink=""><button type="button" class="btn btn-default" style="margin-left:850px;background-color: #20F5DA">Logout</button></a> -->
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a routerLink=""><button type="button" class="btn btn-default btn-danger">Logout</button></a>
+                </li>
+            </ul>
+         
           </nav>
+          
     </div>
+   
   </div>
   <router-outlet></router-outlet>
   

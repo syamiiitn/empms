@@ -36,6 +36,16 @@ export class EmpprofileComponent implements OnInit {
    emp()
    {
   this.profileservice.datafromempprofile(this.data);
+  this.name="";
+  this.id="";
+  this.role="";
+  this.salary="";
+  this.phonenum="";
+  this.gmail="";
+  this.password="";
+  this.aadhar="";
+  this.banknum="";
+  
    }
    
 

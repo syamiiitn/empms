@@ -12,21 +12,21 @@ export class LeaveService {
   leaveMethodTodataservice(v):Observable<any>
   {
     console.log(v);
-    return this.http.post<any>("user/leave",v);
+    return this.http.post<any>("api/user/leave",v);
   } 
    //leavedata request to admin
    requestLeaveToAdmin():Observable<any>
    {
-   return this.http.get<any>("admin/empolyeeleave");
+   return this.http.get<any>("api/admin/empolyeeleave");
    }
    getDataEmployeeLeaveDetails():Observable<any>
    {
-   return this.http.get<any>("user/leave");
+   return this.http.get<any>("api/user/leave");
    }
 
    receiveFromLeave(v)
    {
-    this.http.put('admin/employeeleave',v).subscribe(temp=>alert(temp));
+    this.http.put('api/admin/employeeleave',v).subscribe(temp=>alert(temp));
    }
 
 }

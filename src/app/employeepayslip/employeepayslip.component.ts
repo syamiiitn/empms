@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PayslipService } from '../payslip.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employeepayslip',
   templateUrl: './employeepayslip.component.html',
@@ -10,10 +11,19 @@ export class EmployeepayslipComponent implements OnInit {
   hikesforempolyee:any={};
   searchTerm:string;
   p:number;
-  constructor(private payslipservice:PayslipService) { }
+  constructor(private payslipservice:PayslipService,private router:Router) { }
 
   ngOnInit() {
-    this.payslipservice.dataSendTopayslipComponent().subscribe(temp=>{this.dataforpayslips=temp;console.log(this.dataforpayslips)});
+    this.payslipservice.dataSendTopayslipComponent().subscribe(temp=>{
+      if(temp['message']=='Token is not valid'){
+        this.router.navigate(['home/login']);
+      }
+      else{
+        this.dataforpayslips=temp;
+        console.log(this.dataforpayslips);
+        
+      }
+    });
     
   }
   hikes(i)
@@ -24,8 +34,6 @@ export class EmployeepayslipComponent implements OnInit {
 
  generate(i)
  {
-  
-  
    this.payslipservice.generatePaySlip(i).subscribe(temp=>alert(temp));
 
  }

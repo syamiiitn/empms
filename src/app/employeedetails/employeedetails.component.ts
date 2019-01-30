@@ -34,12 +34,22 @@ banknum:any;
 empAddMethod(temp)
 {
   this.dataservice.giveEmpDataToDataserivce(temp).subscribe(temp=>{this.empdatacomponent=temp;});
+  this.name="";
+  this.id="";
+  this.role="";
+  this.salary="";
+  this.hikes="";
+  this.phonenum="";
+  this.gmail="";
+  this.password="";
+  this.aadhar="";
+  this.banknum="";
+  this.gender="";
 }
 //Edit for Employee Details
 edit(v)
 {
   this.empeditdetails=v;
- 
 }
 
 //Update Role

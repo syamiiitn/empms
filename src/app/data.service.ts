@@ -17,22 +17,22 @@ export class DataService implements OnInit{
   giveEmpDataToDataserivce(temp):Observable<any>
   {
 
-    return this.http.post<any>('admin/empolyeedetails',temp);
+    return this.http.post<any>('api/admin/empolyeedetails',temp);
   }
 //data send to employeedetails component
   dataSendToEmployeeComponent():Observable<any>
   {
-    return this.http.get<any>("admin/empolyeedetails");
+    return this.http.get<any>("api/admin/empolyeedetails");
   }
      
   //login details to dataservice
   logindetailsToDataservice(v):Observable<any>{
-   return this.http.post('home/login',v);
+   return this.http.post('api/home/login',v);
   }
 
   // update Role In  EmployeeDetails
   updateRoleInEmployeeDetails(v):Observable<any>{
-    return this.http.put<any>('admin/empolyeedetails',v);
+    return this.http.put<any>('api/admin/empolyeedetails',v);
   }
 
   //delete employee
@@ -41,6 +41,6 @@ export class DataService implements OnInit{
       headers:new HttpHeaders({'content-Type':'application/json'}),
       body:v
     };
-    return this.http.delete<any>("admin/employeedetails",httpOptions);
+    return this.http.delete<any>("api/admin/employeedetails",httpOptions);
   }
 }

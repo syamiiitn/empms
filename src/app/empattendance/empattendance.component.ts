@@ -27,6 +27,12 @@ export class EmpattendanceComponent implements OnInit {
  //apply attendance
  attendanceApply(v){
   this.attendanceservice.attendanceApplyToAdmin(v).subscribe(temp=>{this.attendance=temp});
+  this.name="";
+  this.id="";
+  this.date="";
+  this.attd="";
+  this.time="";
+  this.status="";
  }
 
 

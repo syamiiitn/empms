@@ -17,16 +17,18 @@ export class LoginComponent implements OnInit {
 onSubmit(v){
   
   console.log(v);
-  this.dataservice.logindetailsToDataservice(v).subscribe(temp=>{
-    this.s=temp;
-    if(temp=="Invalid username"){
+  this.dataservice.logindetailsToDataservice(v).subscribe(res=>{
+    alert(res);
+   
+    localStorage.setItem("idToken",res["idToken"])
+    if(res=="Invalid username"){
       this.router.navigate(['/home/login'])
     }
-    else if(temp=="wrong password"){
+    else if(res=="wrong password"){
       this.router.navigate(['/home/login'])
     }
-    else if(temp=="logged in successfully"){
-      alert(temp);
+    else{
+      alert(res);
       if(v.name=="admin" && v.password=="Karimulla"){
         this.router.navigate(['/admin'])
       }

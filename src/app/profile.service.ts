@@ -11,10 +11,10 @@ export class ProfileService {
    //data send to employee profile
    dataSendToProfile():Observable<any>
    {
-     return this.http.get<any>("user/profile");
+     return this.http.get<any>("api/user/profile");
    }
    datafromempprofile(v)
    {
-    this.http.put('user/profile',v).subscribe();
+    this.http.put('api/user/profile',v).subscribe();
    }
 }

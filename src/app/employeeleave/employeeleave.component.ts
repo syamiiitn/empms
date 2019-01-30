@@ -9,10 +9,10 @@ import { LeaveService } from '../leave.service';
 export class EmployeeleaveComponent implements OnInit {
   requestleave:any[]=[];
   leavedetails:any={};
-  
+  // searchTerm:string;
   constructor(private leaveservice:LeaveService) { }
    p:number;
-   searchTerm:string;
+  
   ngOnInit() {
     this.leaveservice.requestLeaveToAdmin().subscribe(temp=>{this.requestleave=temp;console.log(this.requestleave)});
   }

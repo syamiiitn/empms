@@ -35,6 +35,14 @@ export class EmpleaveComponent implements OnInit,DoCheck {
   console.log(v)
   this.leaveservice.leaveMethodTodataservice(v).subscribe(temp=>{
     alert(temp);
+    this.name="";
+    this.id="";
+    this.leaveoption="";
+    this.reasonforleave="";
+    this.leavedate="";
+    this.leavedateto="";
+    this.status="";
+    
   });
   
   }
