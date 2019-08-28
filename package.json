@@ -59,5 +59,9 @@
   "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC"
 }
