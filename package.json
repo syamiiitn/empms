@@ -25,7 +25,7 @@
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "mongodb": "^3.1.12",
     "mongoose": "^5.4.6",
     "ngx-pagination": "^3.2.1",
